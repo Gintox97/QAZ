@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Register Form</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"/>
+<link href="../css/registro.css" rel="stylesheet" type="text/css"/>
+
+
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="cardbg-ligt">
+                <article class="card-body mx-auto" style="max-width: 400px;"></article>
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get Started with your free account</p>
+                
+                <h:form enctype="multipart/form-data">
+                    
+                    <div class="form-group input-group">
+                        <label for="fullname">Fullname <span>*</span></label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        
+                        <h:inputText class="form-control" id="fullname" value="#{userDAO.user.fullname}" a:placeholder="Fullname" required="true" requiredMessage="You need digit the full name of the user"/> 
+                    </div>
+                    
+                    <div class="form-group input-group">
+                        <label for="nickname">Nickname <span>*</span></label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-d-and-d"></i></span>
+                        </div> 
+                        
+                        <h:inputText class="form-control" id="nickname" value="#{userDAO.user.nickname}" a:placeholder="Nickname" required="true" requiredMessage="You need digit the nickname of the user"/>
+                    </div>
+                  
+                    <div class="form-group input-group">
+                        <label for="email">Email <span>*</span></label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        
+                        <h:inputText class="form-control" id="email" value="#{userDAO.user.email}" a:placeholder="Email" required="true" requiredMessage="You need digit the email of the user"/>
+                    </div>
+                    
+                    <div class="form-group input-group">
+                        <label for="password">Password <span>*</span></label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        </div>
+                        
+                        <h:inputSecret class="form-control" id="password" value="#{userDAO.user.password}" a:placeholder="Password" required="true" requiredMessage="You need digit the password of the user"/>
+                        
+                    </div>
+                    
+                    <div class="form-group input-group">
+                         <label for="image">Image <span>*</span></label>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-image"></i></span>
+                            </div>
+                       
+                            <h:inputFile class="form-control" id="image" value="#{userDAO.file}" a:placeholder="Image" required="true" requiredMessage="You need upload a image"/>
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <h:commandButton class="btn btn-primary btn-block" value="Create Account" action="#{userDAO.registrar()}" > </h:commandButton>
+                    </div>
+                    <span class="badge badge-danger">#{userDAO.error}</span>
+                </h:form>
+                
+            </div>
+        </div>
+    </h:body>
+</html>
+
