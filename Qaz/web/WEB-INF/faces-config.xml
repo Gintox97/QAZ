@@ -9,6 +9,10 @@
             <from-outcome>registrar</from-outcome>
             <to-view-id>/views/registrar.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>inicio</from-outcome>
+            <to-view-id>/views/inicio.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/views/registrar.xhtml</from-view-id>

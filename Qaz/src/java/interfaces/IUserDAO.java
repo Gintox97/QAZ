@@ -12,5 +12,5 @@ import entidades.User;
  * @author Miste
  */
 public interface IUserDAO extends CRUD<User> {
-     public User login(User usuario);
+     public User login(User user);
 }

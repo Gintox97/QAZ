@@ -32,35 +32,35 @@ public class UserDAOBean {
     public UserDAOBean(){
         error = "";
         dao = new UserDAOImp();
-        file = null;
+        user =new User();
         
     }
     
-    public void agregar(){
-        if(imgB64 != null && !imgB64.isEmpty()){
-           
-            user.setConntype(conttype);
-            user.setImage(imgB64);
-            
-            
-            dao.crear(user);
-        }
-    }
-    
-    private void getBase64(){
-        try {
-            InputStream is = null;
-            if(file != null){
-                conttype = file.getContentType();
-                is = file.getInputStream();
-                byte[] archivo = new byte[is.available()];
-                is.read(archivo,0,archivo.length);
-                imgB64 = DatatypeConverter.printBase64Binary(archivo);
-                System.out.println("Img b64 = "+imgB64);
-            }
-        } catch (Exception e) {
-        }
-    }
+//    public void agregar(){
+//        if(imgB64 != null && !imgB64.isEmpty()){
+//           
+//            user.setConntype(conttype);
+//            user.setImage(imgB64);
+//            
+//            
+//            dao.crear(user);
+//        }
+//    }
+//    
+//    private void getBase64(){
+//        try {
+//            InputStream is = null;
+//            if(file != null){
+//                conttype = file.getContentType();
+//                is = file.getInputStream();
+//                byte[] archivo = new byte[is.available()];
+//                is.read(archivo,0,archivo.length);
+//                imgB64 = DatatypeConverter.printBase64Binary(archivo);
+//                System.out.println("Img b64 = "+imgB64);
+//            }
+//        } catch (Exception e) {
+//        }
+//    }
     
     public String registrar(){
         String resultado = "registrar";
@@ -69,7 +69,7 @@ public class UserDAOBean {
             resultado = "index";
            
         }else{
-            error = "We can no register the user";
+            error = "We can not register the user";
         }
         return resultado;
     }
@@ -90,29 +90,29 @@ public class UserDAOBean {
         this.error = error;
     }
 
-     public Part getFile() {
-        return file;
-    }
-
-    public void setFile(Part file) {
-        this.file = file;
-        getBase64();
-    }
-
-    public String getImgB64() {
-        return imgB64;
-    }
-
-    public void setImgB64(String imgB64) {
-        this.imgB64 = imgB64;
-    }
-
-    public String getConttype() {
-        return conttype;
-    }
-
-    public void setConttype(String conttype) {
-        this.conttype = conttype;
-    }
+//     public Part getFile() {
+//        return file;
+//    }
+//
+//    public void setFile(Part file) {
+//        this.file = file;
+//        getBase64();
+//    }
+//
+//    public String getImgB64() {
+//        return imgB64;
+//    }
+//
+//    public void setImgB64(String imgB64) {
+//        this.imgB64 = imgB64;
+//    }
+//
+//    public String getConttype() {
+//        return conttype;
+//    }
+//
+//    public void setConttype(String conttype) {
+//        this.conttype = conttype;
+//    }
     
 }

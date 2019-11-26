@@ -3,7 +3,8 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="views/registrar.xhtml" x="126" y="252" zoom="true"/>
-        <Node id="index.xhtml" x="129" y="370" zoom="true"/>
+        <Node id="index.xhtml" x="154" y="367" zoom="true"/>
+        <Node id="views/inicio.xhtml" x="131" y="154" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

@@ -49,7 +49,9 @@ public class UserBean implements Serializable {
         if(user.getNickname() != null
            && !user.getNickname().equals("")
            && user.getPassword() != null
-           && !user.getPassword().equals("")){
+           && !user.getPassword().equals("")
+                ){
+            
             this.user = DAO.login(user);
             if(this.user != null && (DAO.getError()== null || DAO.getError().isEmpty())){
             if(this.rememberMe){
@@ -75,8 +77,8 @@ public class UserBean implements Serializable {
                 this.user.setFullname(user[1]);
                 this.user.setNickname(user[2]);
                 this.user.setEmail(user[3]);
-                this.user.setImage(user[4]);
-                this.user.setConntype(user[5]);
+//                this.user.setImage(user[4]);
+//                this.user.setConntype(user[5])
                 
                 fc.getApplication().getNavigationHandler().handleNavigation(fc, null, "Inicio");
             } catch (Exception e) {
@@ -154,19 +156,7 @@ public class UserBean implements Serializable {
     public String getError() {
         return error;
     }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public UserDAOImp getDAO() {
-        return DAO;
-    }
-
-    public void setDAO(UserDAOImp DAO) {
-        this.DAO = DAO;
-    }
-
+    
     public boolean isRememberMe() {
         return rememberMe;
     }
