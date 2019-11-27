@@ -13,10 +13,9 @@ public class User {
     private int id = 0;
     private String fullname = "";
     private String email = "";
-    private String nickname = "";
+    private String username = "";
     private String password = "";
-    private String image = "";
-    private String conntype = "";
+    
     
     public User(){
         
@@ -38,6 +37,14 @@ public class User {
         this.fullname = fullname;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     public String getEmail() {
         return email;
     }
@@ -54,30 +61,7 @@ public class User {
         this.password = password;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getConntype() {
-        return conntype;
-    }
-
-    public void setConntype(String conntype) {
-        this.conntype = conntype;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-    
     
     
 }

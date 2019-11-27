@@ -28,16 +28,16 @@
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
                         
-                        <h:inputText class="form-control" id="fullname" value="#{userDAO.user.fullname}" a:placeholder="Fullname" required="true" requiredMessage="You need digit the full name of the user"/> 
+                        <h:inputText class="form-control" id="fullname" value="#{userDAO.usuario.fullname}" a:placeholder="Fullname" required="true" requiredMessage="You need digit the full name of the user"/> 
                     </div>
                     
                     <div class="form-group input-group">
-                        <label for="nickname">Nickname <span>*</span></label>
+                        <label for="username">Username <span>*</span></label>
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fab fa-d-and-d"></i></span>
                         </div> 
                         
-                        <h:inputText class="form-control" id="nickname" value="#{userDAO.user.nickname}" a:placeholder="Nickname" required="true" requiredMessage="You need digit the nickname of the user"/>
+                        <h:inputText class="form-control" id="username" value="#{userDAO.usuario.username}" a:placeholder="Username" required="true" requiredMessage="You need digit the nickname of the user"/>
                     </div>
                   
                     <div class="form-group input-group">
@@ -46,7 +46,7 @@
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
                         
-                        <h:inputText class="form-control" id="email" value="#{userDAO.user.email}" a:placeholder="Email" required="true" requiredMessage="You need digit the email of the user"/>
+                        <h:inputText class="form-control" id="email" value="#{userDAO.usuario.email}" a:placeholder="Email" required="true" requiredMessage="You need digit the email of the user"/>
                     </div>
                     
                     <div class="form-group input-group">
@@ -55,22 +55,13 @@
                             <span class="input-group-text"><i class="fa fa-lock"></i></span>
                         </div>
                         
-                        <h:inputSecret class="form-control" id="password" value="#{userDAO.user.password}" a:placeholder="Password" required="true" requiredMessage="You need digit the password of the user"/>
+                        <h:inputSecret class="form-control" id="password" value="#{userDAO.usuario.password}" a:placeholder="Password" required="true" requiredMessage="You need digit the password of the user"/>
                         
                     </div>
                     
-                <!--    <div class="form-group input-group">
-                         <label for="image">Image <span>*</span></label>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-image"></i></span>
-                            </div>
-                       
-                            <h:inputFile class="form-control" id="image" value="" a:placeholder="Image" required="true" requiredMessage="You need upload a image"/>
-                        
-                    </div>
-                    -->
+               
                     <div class="form-group">
-                        <h:commandButton class="btn btn-primary btn-block" value="Create Account" action="#{userDAO.registrar()}" > </h:commandButton>
+                        <h:commandButton class="btn btn-primary btn-block" value="Create Account" action="#{userDAO.registrar()}" /> 
                     </div>
                     <span class="badge badge-danger">#{userDAO.error}</span>
                 </h:form>

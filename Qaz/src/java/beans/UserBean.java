@@ -29,141 +29,137 @@ import javax.xml.bind.DatatypeConverter;
 @ManagedBean(name="user")
 @SessionScoped
 public class UserBean implements Serializable {
-    private User user;
+
+    private User usuario;
     private String error;
     private UserDAOImp DAO;
-    private boolean rememberMe = false;
-    
-    
+    private boolean rememberme= false;
     
     public UserBean(){
-        user = new User();
+        usuario = new User();
         error = "";
         DAO = new UserDAOImp();
     }
-    
-    
+
+    public User getUsuario() {
+        return usuario;
+    }
     
     public String login(){
         
-        if(user.getNickname() != null
-           && !user.getNickname().equals("")
-           && user.getPassword() != null
-           && !user.getPassword().equals("")
-                ){
+        if(usuario.getUsername() != null
+        && !usuario.getUsername().equals("")
+        && usuario.getPassword() != null
+        && usuario.getPassword().equals("")){
             
-            this.user = DAO.login(user);
-            if(this.user != null && (DAO.getError()== null || DAO.getError().isEmpty())){
-            if(this.rememberMe){
-                guardarC();
+            this.usuario = DAO.login(usuario);
+            if(this.usuario != null && (DAO.getError() == null || DAO.getError().isEmpty())){
+                if(this.rememberme){
+                    guardarCookie();
+                }
+                
+                return "qazStudio";
+            }else{
+                this.error = DAO.getError();
             }
-            return "inicio";
-        }else{
-            this.error = DAO.getError();
         }
-           
-    } 
         return "index";
-}
-    
-    public void loadCookie(){
-        Cookie cookie = getCookie("rememberme");
-        if(cookie != null){
-            try {
-                FacesContext fc = FacesContext.getCurrentInstance();
-                String user[] = Seguridad.decrypt(cookie.getValue()).split(":");
-                
-                this.user.setId(Integer.valueOf(user[0]));
-                this.user.setFullname(user[1]);
-                this.user.setNickname(user[2]);
-                this.user.setEmail(user[3]);
-//                this.user.setImage(user[4]);
-//                this.user.setConntype(user[5])
-                
-                fc.getApplication().getNavigationHandler().handleNavigation(fc, null, "Inicio");
-            } catch (Exception e) {
-                Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, e);
-                
-                
-            }
-        }
     }
     
-    private void guardarC(){
-        try {
+        public void loadCookie(){
+            Cookie cookie = getCookie("rememberme");
+            if(cookie != null){
+                try {
+                    FacesContext fc = FacesContext.getCurrentInstance();
+                    String user[] = Seguridad.decrypt(cookie.getValue()).split(":");
+                    
+                    this.usuario.setId(Integer.valueOf(user[0]));
+                    this.usuario.setFullname(user[1]);
+                    this.usuario.setEmail(user[2]);
+                    this.usuario.setUsername(user[3]);
+                    
+                    fc.getApplication().getNavigationHandler().handleNavigation(fc, null, "qazStudio");
+                    
+                } catch (Exception e) {
+                    Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, e);
+                    
+                }
+            }
+        }
+    
+        public void guardarCookie(){
+            try {
+                FacesContext fc = FacesContext.getCurrentInstance();
+                HttpServletRequest request = (HttpServletRequest) fc.getExternalContext().getRequest();
+                
+                Cookie cookie = null;
+                Cookie userCookies[] = request.getCookies();
+                if(userCookies != null && userCookies.length > 0){
+                    for(Cookie ck:userCookies){
+                        if(ck.getName().equals("rememberme")){
+                            cookie = ck;
+                            break;
+                        }
+                    }
+                }
+                
+                String valor = this.usuario.getId()+":"+this.usuario.getFullname()+":";
+                       valor+= this.usuario.getEmail()+":"+this.usuario.getUsername();
+                       
+                       valor = Seguridad.encrypt(valor);
+                       if(cookie != null){
+                           cookie.setValue(valor);
+                       }else{
+                           cookie = new Cookie("rememberme", valor);
+                           cookie.setPath(request.getContextPath());
+                           
+                       }
+                       
+                       cookie.setMaxAge(3600);
+                       HttpServletResponse response = (HttpServletResponse) fc.getExternalContext().getResponse();
+                       
+                       response.addCookie(cookie);
+            } catch (Exception e) {
+            }
+        }
+        
+        public Cookie getCookie(String name){
+           try{
             FacesContext fc = FacesContext.getCurrentInstance();
             HttpServletRequest request = (HttpServletRequest) fc.getExternalContext().getRequest();
             
             Cookie cookie = null;
             Cookie userCookies[] = request.getCookies();
             if(userCookies != null && userCookies.length > 0){
-                for(Cookie ck: userCookies){
-                    if(ck.getName().equals("rememberme")){
-                        cookie = ck;
-                        break;
-                    }
+            for(Cookie ck: userCookies){
+                if(ck.getName().equals("rememberme")){
+                    cookie = ck;
+                    return cookie;
                 }
             }
-            
-            String valor = this.user.getId()+":"+this.user.getFullname()+":";
-                   valor+= this.user.getNickname()+":"+this.user.getEmail();
-                   
-                   
-                   valor = Seguridad.encrypt(valor);
-                   if(cookie != null){
-                       cookie.setValue(valor);
-                   }else{
-                       cookie = new Cookie("rememberme",valor);
-                       cookie.setPath(request.getContextPath());
-                   }
-                   cookie.setMaxAge(3600);
-                   HttpServletResponse response = (HttpServletResponse)fc.getExternalContext().getResponse();
-                   response.addCookie(cookie);
-            
-        } catch (Exception e) {
         }
-    }
-    
-    public Cookie getCookie(String name){
-        try {
-            FacesContext fc = FacesContext.getCurrentInstance();
-            HttpServletRequest request = (HttpServletRequest)
-                    fc.getExternalContext().getRequest();
-            
-            Cookie cookie = null;
-            Cookie userCookie[] = request.getCookies();
-            if(userCookie != null && userCookie.length > 0){
-                for(Cookie ck:userCookie){
-                    if(ck.getName().equals("rememberme")){
-                        cookie = ck;
-                        return cookie;
-                    }
-                }
-            }
-        } catch (Exception e) {
+           }catch(Exception e){
+               
+           }
+           return null;
         }
-        return null;
-    }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
     }
 
     public String getError() {
         return error;
     }
-    
-    public boolean isRememberMe() {
-        return rememberMe;
+
+   
+
+    public boolean isRememberme() {
+        return rememberme;
     }
 
-    public void setRememberMe(boolean rememberMe) {
-        this.rememberMe = rememberMe;
+    public void setRememberme(boolean rememberme) {
+        this.rememberme = rememberme;
     }
-
    
 }

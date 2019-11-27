@@ -21,65 +21,34 @@ import javax.xml.bind.DatatypeConverter;
 @ManagedBean(name="userDAO")
 @RequestScoped
 public class UserDAOBean {
-    
-    private User user = new User();
+ 
+    private User usuario;
     private String error;
     private UserDAOImp dao;
-    private Part file;
-    private String imgB64;
-    private String conttype;
     
     public UserDAOBean(){
-        error = "";
+        error="";
         dao = new UserDAOImp();
-        user =new User();
-        
+        usuario = new User();
     }
-    
-//    public void agregar(){
-//        if(imgB64 != null && !imgB64.isEmpty()){
-//           
-//            user.setConntype(conttype);
-//            user.setImage(imgB64);
-//            
-//            
-//            dao.crear(user);
-//        }
-//    }
-//    
-//    private void getBase64(){
-//        try {
-//            InputStream is = null;
-//            if(file != null){
-//                conttype = file.getContentType();
-//                is = file.getInputStream();
-//                byte[] archivo = new byte[is.available()];
-//                is.read(archivo,0,archivo.length);
-//                imgB64 = DatatypeConverter.printBase64Binary(archivo);
-//                System.out.println("Img b64 = "+imgB64);
-//            }
-//        } catch (Exception e) {
-//        }
-//    }
     
     public String registrar(){
         String resultado = "registrar";
-        boolean result = dao.crear(user);
+        boolean result = dao.crear(usuario);
         if(result){
             resultado = "index";
-           
         }else{
             error = "We can not register the user";
         }
         return resultado;
     }
 
-    public User getUser() {
-        return user;
+    public User getUsuario() {
+        return usuario;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
     }
 
     public String getError() {
@@ -89,30 +58,6 @@ public class UserDAOBean {
     public void setError(String error) {
         this.error = error;
     }
-
-//     public Part getFile() {
-//        return file;
-//    }
-//
-//    public void setFile(Part file) {
-//        this.file = file;
-//        getBase64();
-//    }
-//
-//    public String getImgB64() {
-//        return imgB64;
-//    }
-//
-//    public void setImgB64(String imgB64) {
-//        this.imgB64 = imgB64;
-//    }
-//
-//    public String getConttype() {
-//        return conttype;
-//    }
-//
-//    public void setConttype(String conttype) {
-//        this.conttype = conttype;
-//    }
+    
     
 }
