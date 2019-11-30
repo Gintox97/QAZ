@@ -30,7 +30,7 @@ public class UserDAOImp implements IUserDAO  {
     @Override
     public User login(User usuario) {
         try {
-            String query = "SELECT * FROM user WHERE ";
+            String query = "SELECT * FROM usuarios WHERE ";
                    query += " username LIKE '"+usuario.getUsername()+ "' ";
                    query += " AND password LIKE AES_ENCRYPT ('"+usuario.getPassword()+ "','qazstore') ";
                    
@@ -65,7 +65,7 @@ public class UserDAOImp implements IUserDAO  {
     public boolean crear(User usuario) {
         
         try {
-            String query ="INSERT INTO user (fullname,email,username,password) ";
+            String query ="INSERT INTO usuarios (fullname,email,username,password) ";
                    query += " VALUES ('"+usuario.getFullname()+"','"
                            +usuario.getEmail()+"','"+usuario.getUsername()+"',"
                            + " AES_ENCRYPT('"+usuario.getPassword()+"','qazstore') )";
@@ -84,7 +84,7 @@ public class UserDAOImp implements IUserDAO  {
     public boolean editar(User usuario) {
             
         try {
-            String query ="UPDATE user SET ";
+            String query ="UPDATE usuarios SET ";
                    query += " fullname='"+usuario.getFullname()+"', email ='"
                            +usuario.getEmail()+"',username='"+usuario.getUsername()+"',"
                            + "password = AES_ENCRYPT('"+usuario.getPassword()+"','qazstore') ";
@@ -103,7 +103,7 @@ public class UserDAOImp implements IUserDAO  {
     public boolean eliminar(int id) {
             
         try {
-            String query = "DELETE FROM user WHERE id="+id;
+            String query = "DELETE FROM usuarios WHERE id="+id;
             
             if(db.connect()){
                 return (boolean) db.execute(query, true);
@@ -120,7 +120,7 @@ public class UserDAOImp implements IUserDAO  {
             List<User> usuarios = new ArrayList();
             
             try {
-            String query = "SELECT * FROM user ";
+            String query = "SELECT * FROM usuarios ";
             
             if(db.connect()){
                 ResultSet resultado = (ResultSet) db.execute(query, false);
@@ -153,7 +153,7 @@ public class UserDAOImp implements IUserDAO  {
     public User obtenerId(int id) {
 
         try {
-            String query = "SELECT * FROM user WHERE id ="+id;
+            String query = "SELECT * FROM usuarios WHERE id ="+id;
             
             if(db.connect()){
                 ResultSet resultado = (ResultSet) db.execute(query, false);
