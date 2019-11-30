@@ -41,9 +41,6 @@ public class UserBean implements Serializable {
         DAO = new UserDAOImp();
     }
 
-    public User getUsuario() {
-        return usuario;
-    }
     
     public String login(){
         
@@ -143,6 +140,11 @@ public class UserBean implements Serializable {
            }
            return null;
         }
+        
+        public User getUsuario() {
+        return usuario;
+    }
+    
 
     public void setUsuario(User usuario) {
         this.usuario = usuario;

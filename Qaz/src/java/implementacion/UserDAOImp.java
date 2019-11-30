@@ -28,11 +28,11 @@ public class UserDAOImp implements IUserDAO  {
     }
     
     @Override
-    public User login(User user) {
+    public User login(User usuario) {
         try {
             String query = "SELECT * FROM user WHERE ";
-                   query += " username LIKE '"+user.getUsername()+ "' ";
-                   query += " AND password LIKE AES_ENCRYPT ('"+user.getPassword()+ "','qaz') ";
+                   query += " username LIKE '"+usuario.getUsername()+ "' ";
+                   query += " AND password LIKE AES_ENCRYPT ('"+usuario.getPassword()+ "','qazstore') ";
                    
             if(db.connect()){
                 ResultSet resultado = (ResultSet) db.execute(query, false);
@@ -68,7 +68,7 @@ public class UserDAOImp implements IUserDAO  {
             String query ="INSERT INTO user (fullname,email,username,password) ";
                    query += " VALUES ('"+usuario.getFullname()+"','"
                            +usuario.getEmail()+"','"+usuario.getUsername()+"',"
-                           + " AES_ENCRYPT('"+usuario.getPassword()+"','qaz') )";
+                           + " AES_ENCRYPT('"+usuario.getPassword()+"','qazstore') )";
                    
             if(db.connect()){
                 return (boolean) db.execute(query, true);
@@ -87,7 +87,7 @@ public class UserDAOImp implements IUserDAO  {
             String query ="UPDATE user SET ";
                    query += " fullname='"+usuario.getFullname()+"', email ='"
                            +usuario.getEmail()+"',username='"+usuario.getUsername()+"',"
-                           + "password = AES_ENCRYPT('"+usuario.getPassword()+"','qaz') ";
+                           + "password = AES_ENCRYPT('"+usuario.getPassword()+"','qazstore') ";
                    query += " WHERE id = "+usuario.getId();
        if(db.connect()){
            return (boolean) db.execute(query, true);
