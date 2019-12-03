@@ -16,133 +16,20 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `agame`
+-- Table structure for table `game`
 --
 
-DROP TABLE IF EXISTS `agame`;
+DROP TABLE IF EXISTS `game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `agame` (
+CREATE TABLE `game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idUser` int(11) NOT NULL,
-  `idGame` int(11) NOT NULL,
-  `dateP` date NOT NULL,
-  `dateR` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_AG_User_idx` (`idUser`),
-  KEY `FK_AG_game_idx` (`idGame`),
-  CONSTRAINT `FK_AG_User` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_AG_game` FOREIGN KEY (`idGame`) REFERENCES `games` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `agame`
---
-
-LOCK TABLES `agame` WRITE;
-/*!40000 ALTER TABLE `agame` DISABLE KEYS */;
-/*!40000 ALTER TABLE `agame` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `amovie`
---
-
-DROP TABLE IF EXISTS `amovie`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `amovie` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idUser` int(11) NOT NULL,
-  `idMovie` int(11) NOT NULL,
-  `fechaP` date NOT NULL,
-  `fechaR` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_AM_user_idx` (`idUser`),
-  KEY `FK_AM_movies_idx` (`idMovie`),
-  CONSTRAINT `FK_AM_movies` FOREIGN KEY (`idMovie`) REFERENCES `movies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_AM_user` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `amovie`
---
-
-LOCK TABLES `amovie` WRITE;
-/*!40000 ALTER TABLE `amovie` DISABLE KEYS */;
-/*!40000 ALTER TABLE `amovie` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `foro`
---
-
-DROP TABLE IF EXISTS `foro`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `foro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idUser` int(11) NOT NULL,
-  `comment` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_foro_user_idx` (`idUser`),
-  CONSTRAINT `FK_foro_user` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `foro`
---
-
-LOCK TABLES `foro` WRITE;
-/*!40000 ALTER TABLE `foro` DISABLE KEYS */;
-/*!40000 ALTER TABLE `foro` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `games`
---
-
-DROP TABLE IF EXISTS `games`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `games` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `price` double NOT NULL,
+  `name` varchar(100) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `type` enum('digital','physical') NOT NULL,
-  `genre` varchar(100) NOT NULL,
-  `image` longtext NOT NULL,
-  `conttype` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `games`
---
-
-LOCK TABLES `games` WRITE;
-/*!40000 ALTER TABLE `games` DISABLE KEYS */;
-/*!40000 ALTER TABLE `games` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `movies`
---
-
-DROP TABLE IF EXISTS `movies`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `movies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
   `price` double NOT NULL,
-  `sinopsis` varchar(200) NOT NULL,
-  `genre` varchar(100) NOT NULL,
+  `tipo` enum('physics','virtual') NOT NULL,
+  `genero` varchar(100) NOT NULL,
+  `plataforma` varchar(100) NOT NULL,
   `image` longtext NOT NULL,
   `conttype` text NOT NULL,
   PRIMARY KEY (`id`)
@@ -150,39 +37,39 @@ CREATE TABLE `movies` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `movies`
+-- Dumping data for table `game`
 --
 
-LOCK TABLES `movies` WRITE;
-/*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-/*!40000 ALTER TABLE `movies` ENABLE KEYS */;
+LOCK TABLES `game` WRITE;
+/*!40000 ALTER TABLE `game` DISABLE KEYS */;
+/*!40000 ALTER TABLE `game` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuarios` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(45) NOT NULL,
+  `fullname` text NOT NULL,
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Luis Godoy','mister_luiz@outlook.com','Gintox97','123');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Luis Godoy','mister_luiz@outlook.com','Gintox97','123'),(2,'aa','aa','aa','aa'),(3,'Sagrario Mexia','sagrario_099@hotmail.com','Zakuro17','1234');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -202,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-29 19:39:40
+-- Dump completed on 2019-12-03  5:50:11
