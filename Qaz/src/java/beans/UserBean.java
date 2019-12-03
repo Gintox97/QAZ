@@ -47,7 +47,7 @@ public class UserBean implements Serializable {
         if(usuario.getUsername() != null
         && !usuario.getUsername().equals("")
         && usuario.getPassword() != null
-        && usuario.getPassword().equals("")){
+        && !usuario.getPassword().equals("")){
             
             this.usuario = DAO.login(usuario);
             if(this.usuario != null && (DAO.getError() == null || DAO.getError().isEmpty())){
