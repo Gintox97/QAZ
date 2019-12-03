@@ -3,7 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>QAZ Studio</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
   <link href="../css/style.css" rel="stylesheet" type="text/css"/>
@@ -20,13 +24,16 @@
             <a href='#showcase'>General</a>
           </li>
           <li>
-            <a href='#musica'>Musica</a>
+            <a href='#game'>Games</a>
           </li>
           <li>
-            <a href='#video'>Video</a>
+            <a href='#movie'>Movies</a>
           </li>
           <li>
-            <a href='#gift-cards'>Gift Cards</a>
+            <a href='#yolo'>Another one</a>
+          </li>
+                        <li style="float: right ">
+                            <a href='#'>#{user.usuario.fullname}</a>
           </li>
                     </ul>
                     <a href="#" id="openup">QAZ World</a>
@@ -35,42 +42,48 @@
             </header>
             
             <div class="section-main container">
-      <h1>myTunes.</h1>
-      <h2>Tu musica, peliculas, y TV shows toman lugar.</h2>
+      <h1>QAZ World</h1>
+      <h2>Catalogs of your games, movies, among other things </h2>
       <p class="lead hide-on-small">
-        myTunes es la mejor manera de disfrutar y organizar la musica, peliculas, y TV shows que tienes y comprar
-        lo que tu deseas. Disfruta todo el entretenimiento que myTunes tiene que ofrecer en tu Mac y PC.
+        Our purpose is to provide the best catalog service for the search of preferred items
+         either a video game, a movie that is hard to find, or even decorative items.
       </p>
     </div>
   </div>
-        <section id="music" class="section">
+        <section id="game" class="section">
     <div class="container">
       <h2 class="section-head">
-        <i class="fas fa-music"></i> Musica
+        <i class="fas fa-gamepad"></i> Games
       </h2>
-      <h3>45 millones de canciones. Zero anuncios.</h3>
-      <p class="lead">Stream over 45 millions de canciones, ad-free. O descargue álbumes y pistas para escuchar sin conexión. Toda la musica en tu personal
-         biblioteca myTunes, sin importar de dónde venga, vive junto al catálogo de Orange Music. Comience su libre
-         prueba de tres meses sin compromiso y cancele en cualquier momento.</p>
-      <a href="#" class="btn btn-primary mb">Comience su prueba ahora</a>
-      <p class="text-light">Orange Music está disponible en myTunes para dispositivos iOS y Android.</p>
-      <img src="img/mockup1.png" alt=""/>
+      <h3>Find your favorite games at the best price</h3>
+      <p class="lead">You are looking for a specific game, or want to publicize your game. in QAZ World we will make that possible,
+       since we allow the use of our catalog to not only search, but recommend video game titles
+       which may be popular or not, and have the ability to upload your own custom games.</p>
+      <h:form>
+          <h:commandButton class="btn btn-outline-danger" value="Search and dicovered, right now!" action="gameForm"/>
+      </h:form>
+      <p class="text-light">You can have the posibilities.</p>
+      <img src="../img/game.jpg" alt=""/>
     </div>
   </section>
         
          <!-- Seccion Entretenimiento-->
   <section id="entertainment" class="section">
     <div class="container">
-      <h3>Un mundo de entretenimiento. Disponible donde quiera que estés.</h3>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veniam nobis, nisi ut expedita, doloribus reprehenderit
-        explicabo non velit repellat alias saepe inventore repellendus? Molestias suscipit eos tempora? Quae quaerat cumque
-        in veritatis impedit dolorum sapiente recusandae minima quo aperiam quam, excepturi quasi totam ad quas? Ipsam laudantium
-        soluta delectus!</p>
+        <h2 class="section-head">
+        <i class="fas fa-film"></i> Movies
+      </h2>
+      <h3>A world of entertainment. Available wherever you are.</h3>
+      <p class="lead">Availability of any movie, whether digital or physical, 
+          updating every approximately 3 months for the convenience of users.</p>
+      <h:form>
+          <h:commandButton class="btn btn-outline-danger" value="Search and dicovered, right now!" action="gameForm"/>
+      </h:form>
     </div>
   </section>
          
          <!-- Seccion Gift Card  -->
-  <section id="gift-cards" class="section bg-light">
+  <section id="yolo" class="section bg-light">
     <div class="container">
       <div class="gift-cards">
         <div>
