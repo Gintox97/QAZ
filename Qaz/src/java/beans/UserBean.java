@@ -60,7 +60,7 @@ public class UserBean implements Serializable {
                 this.error = DAO.getError();
             }
         }
-        return "index";
+        return "qazStudio";
     }
     
         public void loadCookie(){
