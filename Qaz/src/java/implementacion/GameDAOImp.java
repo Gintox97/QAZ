@@ -8,6 +8,8 @@ package implementacion;
 import configuracion.DBHelper;
 import entidades.Game;
 import interfaces.IGameDAO;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,9 +17,9 @@ import java.util.List;
  * @author Miste
  */
 public class GameDAOImp implements IGameDAO{
-
-    DBHelper db = new DBHelper();
-    
+    private Game game;
+    private DBHelper db ;
+    private String error;
     
     @Override
     public boolean crear(Game game) {
@@ -60,12 +62,74 @@ public class GameDAOImp implements IGameDAO{
 
     @Override
     public List<Game> obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            List<Game> games = new ArrayList();
+            
+            try {
+            String query = "SELECT * FROM game";
+            
+            if(db.connect()){
+                ResultSet resultado = (ResultSet) db.execute(query, false);
+                while(resultado.next()){
+                    this.game.setId(resultado.getInt("id"));
+                    this.game.setName(resultado.getString("name"));
+                    this.game.setDescription(resultado.getString("description"));
+                    this.game.setPrice(resultado.getDouble("price"));
+                    this.game.setType(resultado.getString("tipo"));
+                    this.game.setGenero(resultado.getString("genero"));
+                    this.game.setPlatform(resultado.getString("platform"));
+                    this.game.setImage(resultado.getString("image"));
+                    
+                    games.add(this.game);
+                }
+                
+            }else{
+                error = "We can not connect to server";
+            }
+            
+        } catch (Exception e) {
+                System.out.println("Exception: "+e.getMessage());
+                error = "We can not connect to server";
+        }finally{
+                db.disconnect();
+            }
+            return games;
+
     }
 
     @Override
     public Game obtenerId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            String query = "SELECT * FROM game WHERE id ="+id;
+            
+            if(db.connect()){
+                ResultSet resultado = (ResultSet) db.execute(query, false);
+                while(resultado.next()){
+                    this.game.setId(resultado.getInt("id"));
+                    this.game.setName(resultado.getString("name"));
+                    this.game.setDescription(resultado.getString("description"));
+                    this.game.setPrice(resultado.getDouble("price"));
+                    this.game.setType(resultado.getString("tipo"));
+                    this.game.setGenero(resultado.getString("genero"));
+                    this.game.setPlatform(resultado.getString("platform"));
+                    this.game.setImage(resultado.getString("image"));
+                    
+                  return this.game;
+                }
+                
+            }else{
+                error = "We can not connect to server";
+            }
+            
+        } catch (Exception e) {
+                System.out.println("Exception: "+e.getMessage());
+                error = "We can not connect to server";
+        }finally{
+                db.disconnect();
+            }
+            return null;
     }
     
+    public String getError() {
+        return error;
+    }
 }

@@ -182,8 +182,8 @@ public class UserDAOImp implements IUserDAO  {
 return null;
     }
 
+    
     public String getError() {
         return error;
     }
-    
 }

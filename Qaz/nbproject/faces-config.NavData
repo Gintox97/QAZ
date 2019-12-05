@@ -2,8 +2,9 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="views/forms/gameForm.xhtml" x="460" y="52" zoom="true"/>
         <Node id="views/qazStudio.xhtml" x="167" y="207" zoom="true"/>
-        <Node id="views/games.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="views/games.xhtml" x="381" y="148" zoom="true"/>
         <Node id="views/registrar.xhtml" x="179" y="247" zoom="true"/>
         <Node id="index.xhtml" x="154" y="367" zoom="true"/>
     </Scope>

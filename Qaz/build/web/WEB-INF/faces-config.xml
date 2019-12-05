@@ -28,4 +28,11 @@
             <to-view-id>/views/games.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/views/games.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>gameForm</from-outcome>
+            <to-view-id>/views/forms/gameForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
