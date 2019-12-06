@@ -24,13 +24,12 @@ DROP TABLE IF EXISTS `game`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `game` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `price` double NOT NULL,
-  `tipo` enum('physics','virtual') NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
+  `precio` double NOT NULL,
   `genero` varchar(100) NOT NULL,
   `plataforma` varchar(100) NOT NULL,
-  `image` longtext NOT NULL,
+  `imagen` longtext NOT NULL,
   `conttype` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -59,7 +58,7 @@ CREATE TABLE `user` (
   `username` varchar(45) NOT NULL,
   `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,4 +88,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-03  5:50:11
+-- Dump completed on 2019-12-06 15:07:43

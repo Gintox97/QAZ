@@ -27,18 +27,17 @@ public class GameDAOImp implements IGameDAO{
         boolean resultado = false;
         
         try {
-            String query  ="INSERT INTO game(name,description,"
-                    +"price,tipo,genero,plataforma,image,conttype) VALUES("
-                    +"'"+game.getName()+"',"
-                    +"'"+game.getDescription()+"',"
-                    +""+game.getPrice()+","
-                    +"'"+game.getType()+"',"
-                    +"'"+game.getGenero()+"',"
-                    +"'"+game.getPlatform()+"',"
-                    +"'"+game.getImage()+"',"
-                    +"'"+game.getConttype()+"'"
-                    +")";
-            
+            String query  ="INSERT INTO game(nombre,descripcion,"
+                    + "precio,genero,plataforma,imagen,conttype) VALUES("
+                    + "'"+game.getName()+"',"
+                    + "'"+game.getDescription()+"',"
+                    + ""+game.getPrice()+","
+                    + "'"+game.getGenero()+"',"
+                    + "'"+game.getPlatform()+"',"
+                    + "'"+game.getImage()+"',"
+                    + "'"+game.getConttype()+"'"
+                    + ")";
+             
             if(db.connect()){
                 resultado = (boolean) db.execute(query, true);
             }
@@ -71,13 +70,12 @@ public class GameDAOImp implements IGameDAO{
                 ResultSet resultado = (ResultSet) db.execute(query, false);
                 while(resultado.next()){
                     this.game.setId(resultado.getInt("id"));
-                    this.game.setName(resultado.getString("name"));
-                    this.game.setDescription(resultado.getString("description"));
-                    this.game.setPrice(resultado.getDouble("price"));
-                    this.game.setType(resultado.getString("tipo"));
+                    this.game.setName(resultado.getString("nombre"));
+                    this.game.setDescription(resultado.getString("descripcion"));
+                    this.game.setPrice(resultado.getDouble("precio"));
                     this.game.setGenero(resultado.getString("genero"));
-                    this.game.setPlatform(resultado.getString("platform"));
-                    this.game.setImage(resultado.getString("image"));
+                    this.game.setPlatform(resultado.getString("plataforma"));
+                    this.game.setImage(resultado.getString("imagen"));
                     
                     games.add(this.game);
                 }
@@ -105,13 +103,12 @@ public class GameDAOImp implements IGameDAO{
                 ResultSet resultado = (ResultSet) db.execute(query, false);
                 while(resultado.next()){
                     this.game.setId(resultado.getInt("id"));
-                    this.game.setName(resultado.getString("name"));
-                    this.game.setDescription(resultado.getString("description"));
-                    this.game.setPrice(resultado.getDouble("price"));
-                    this.game.setType(resultado.getString("tipo"));
+                    this.game.setName(resultado.getString("nombre"));
+                    this.game.setDescription(resultado.getString("descripcion"));
+                    this.game.setPrice(resultado.getDouble("precio"));
                     this.game.setGenero(resultado.getString("genero"));
-                    this.game.setPlatform(resultado.getString("platform"));
-                    this.game.setImage(resultado.getString("image"));
+                    this.game.setPlatform(resultado.getString("platforma"));
+                    this.game.setImage(resultado.getString("imagen"));
                     
                   return this.game;
                 }

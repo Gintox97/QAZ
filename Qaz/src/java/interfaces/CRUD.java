@@ -12,7 +12,7 @@ import java.util.List;
  * @author Miste
  */
 public interface CRUD<T> {
-       public boolean crear(T t);
+    public boolean crear(T t);
     public boolean editar(T t);
     public boolean eliminar(int id);
     public List<T> obtenerTodos();
