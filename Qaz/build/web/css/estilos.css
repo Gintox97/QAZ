@@ -1,0 +1,44 @@
+.sb{
+    font-family: "New Times Rowan";
+    font-size: 14.5px;
+ 
+}
+
+.titulo{
+    font-family: Curlz mt,sans-serif;
+    font-size: 2em;
+    color:#333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+div.card{
+    width: calc(100% - 60px);
+    background: #f8f8f8;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+div.card div p:first-child{
+    font-family: Curlz mt,sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    color: #333
+}
+
+div.card div p:last-child-child{
+    font-family: Curlz mt,sans-serif;
+    font-size: 0.9em;
+    color: #999;
+}
+
+div.card img{
+    width: 60%;
+    border:20px solid transparent;
+         border-image: url(".../images/marco.png")18 18 round;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            margin-right: 20px;
+}

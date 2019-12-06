@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Game Register</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
@@ -11,54 +12,58 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
   <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-  <style>
-      .carousel-inner img {
-    width: 100%;
-    height: 100%;
-  }
-  </style>
+  
     </h:head>
     <h:body>
-        <h2 style="font-family: Federant; color: white; align-content: center">
-            We have many preferences of all videogame platforms
-        </h2>
-        <div id="demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="../../img/mario.jpg" alt="Mario" width="1100" height="500"/>
-      <div class="carousel-caption">
-        <h3>Super Mario Bros.</h3>
-        <p>Nintendo</p>
-      </div>   
-    </div>
-    <div class="carousel-item">
-        <img src="../../img/Halo.jpg" alt="Halo" width="1100" height="500"/>
-      <div class="carousel-caption">
-        <h3>Halo</h3>
-        <p>X-Box/Microsoft</p>
-      </div>   
-    </div>
-    <div class="carousel-item">
-        <img src="../../img/god of war.jpg" alt="God Of War" width="1100" height="500"/>
-      <div class="carousel-caption">
-        <h3>God Of War</h3>
-        <p>PlayStation/Sony</p>
-      </div>   
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-        
+         <h:form enctype="multipart/form-data">
+            <div class="container">
+                <div class="row mt-40">
+                    <div class="col-md-4">&nbsp;</div>
+                    <div class="col-md-4">
+                        <div class="logo-container">
+                            <img src="../../img/logo.png" alt=""/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name <span>*</span></label>
+                            <h:inputText class="form-control" id="name" value="#{game.game.name}" required="true" requiredMessage="You need digit the name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <h:inputTextarea class="form-control" id="description" value="#{game.game.description}"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price <span>*</span></label>
+                            <h:inputText class="form-control" id="price" value="#{game.game.price}" required="true" requiredMessage="You need digit the price"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Type <span>*</span></label>
+                            <h:selectOneMenu value = "#{game.game.type}"> 
+   <f:selectItem itemValue = "1" itemLabel = "Digital" /> 
+   <f:selectItem itemValue = "2" itemLabel = "Physics" /> 
+</h:selectOneMenu>
+                        </div>
+                        <div class="form-group">
+                            <label for="genre">Genre <span>*</span></label>
+                            <h:inputText class="form-control" id="genre" value="#{game.game.genero}" required="true" requiredMessage="You need digit the genre"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="plataforma">Platform <span>*</span></label>
+                            <h:inputText class="form-control" id="plataforma" value="#{game.game.platform}" required="true" requiredMessage="You need digit the platform"/>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="image">Image <span>*</span></label>
+                            <h:inputFile class="form-control" id="image" value="#{game.file}" required="true" requiredMessage="You need upload a image"/>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton class="btn btn-primary btn-registrar" value="Guardar" action="#{game.agregar()}" />
+                        </div>
+                         <span class="badge badge-danger">#{userDAO.error}</span>
+                    </div>
+                    <div class="col-md-4">&nbsp;</div>
+                </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
 
