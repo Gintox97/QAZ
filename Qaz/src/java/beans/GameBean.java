@@ -32,8 +32,8 @@ public class GameBean {
     }
     
     public void agregar(){
-        if (imgB64 != null && !imgB64.isEmpty()){
-            
+        if(imgB64!=null && !imgB64.isEmpty()){ // png jpg gif bmp  //mp4 mpeg wav 
+           
             game.setConttype(conttype);
             game.setImage(imgB64);
             
@@ -41,21 +41,22 @@ public class GameBean {
         }
     }
     
-    private void getBase64(){
+   private void getBase64(){
         try {
-            InputStream is = null;
+            InputStream is = null;            
             if(file != null){
                 conttype = file.getContentType();
-                is = file.getInputStream();
+//                file.getSize()
+                is = file.getInputStream();                
                 byte[] archivo = new byte[is.available()];
-                is.read(archivo,0,archivo.length);
-                imgB64 = DatatypeConverter.printBase64Binary(archivo);
-                System.out.println("IMG b64 = "+imgB64);
+                is.read(archivo,0,archivo.length);                
+                imgB64 = DatatypeConverter.printBase64Binary(archivo);                
+                System.out.println("Img b64 = "+imgB64);
             }
+            
         } catch (Exception e) {
         }
     }
-
     public Game getGame() {
         return game;
     }
