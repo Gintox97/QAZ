@@ -17,8 +17,8 @@ import java.util.List;
  * @author Miste
  */
 public class GameDAOImp implements IGameDAO{
-    private Game game;
-    private DBHelper db ;
+    private Game game = new Game();
+    private DBHelper db = new DBHelper();
     private String error;
     
     @Override

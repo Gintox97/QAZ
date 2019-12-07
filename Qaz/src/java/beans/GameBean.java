@@ -31,7 +31,7 @@ public class GameBean {
         dao = new GameDAOImp();
     }
     
-    public void agregar(){
+    public void add(){
         if(imgB64!=null && !imgB64.isEmpty()){ // png jpg gif bmp  //mp4 mpeg wav 
            
             game.setConttype(conttype);
@@ -55,8 +55,26 @@ public class GameBean {
             }
             
         } catch (Exception e) {
+            
         }
     }
+   
+//   public void tabla() throws SQLException{
+//       PreparedStatement ps;
+//       ResultSet rs;
+//       ps = (PreparedStatement) dao.obtenerTodos();
+//       rs=ps.executeQuery();
+//       
+//       while(rs.next()){
+//           rs.getString("nombre");
+//           rs.getString("descripcion");
+//           rs.getDouble("precio");
+//           rs.getString("genero");
+//           rs.getString("plataforma");
+//           rs.getBlob("imagen");
+//       }
+//   }
+   
     public Game getGame() {
         return game;
     }

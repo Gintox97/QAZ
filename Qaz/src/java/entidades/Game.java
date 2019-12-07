@@ -11,14 +11,14 @@ package entidades;
  */
 public class Game {
     private int id = 0;
-    private String name = ""; 
-    private String description = "";
-    private double price= 0.0;
+    private String name; 
+    private String description;
+    private double price;
     private String type = "";
-    private String genero = "";
-    private String platform = "";
-    private String image = "";
-    private String conttype = "";
+    private String genero;
+    private String platform;
+    private String image;
+    private String conttype;
     
     public Game(){
         
