@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Movie Register</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+  <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ 
+  
+    </h:head> 
+    <h:body>
+         <h:form enctype="multipart/form-data">
+            <div class="container">
+                <div class="row mt-40">
+                    <div class="col-md-4">&nbsp;</div>
+                    <div class="col-md-4">
+                        <div class="logo-container">
+                            <img src="../../img/preview-5700dfec-07e4-4f5b-903f-690f0a141f38-Ykuyx.jpg" alt=""/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name <span>*</span></label>
+                            <h:inputText class="form-control" id="name" value="#{item.it.name}" required="true" requiredMessage="You need digit the name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Desription</label>
+                            <h:inputTextarea class="form-control" id="description" value="#{item.it.description}" required="true" requiredMessage="You need digit the Description" />
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price <span>*</span></label>
+                            <h:inputText class="form-control" id="price" value="#{item.it.price}" required="true" requiredMessage="You need digit the price"/>
+                        </div>
+                       
+                       
+                        <div class="form-group">
+                            <label for="image">Image <span>*</span></label>
+                            <h:inputFile class="form-control" id="image" value="#{item.file}" required="true" requiredMessage="You need upload a image"/>
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton class="btn btn-primary btn-registrar" value="Add Item" action="#{item.add()}" />
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-4">&nbsp;</div>
+                </div>
+            </div>
+        </h:form>
+        <a href="../items.xhtml" class="btn btn-primary btn-registrar" style="color: white; font-family: Federant">Back</a>
+    </h:body>
+</html>
+

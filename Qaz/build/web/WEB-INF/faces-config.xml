@@ -20,6 +20,10 @@
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>yolos</from-outcome>
+            <to-view-id>/views/qazStudio.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/views/qazStudio.xhtml</from-view-id>
@@ -30,6 +34,10 @@
         <navigation-case>
             <from-outcome>movieTable</from-outcome>
             <to-view-id>/views/movies.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>itemTable</from-outcome>
+            <to-view-id>/views/items.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -58,6 +66,20 @@
         <navigation-case>
             <from-outcome>yoloM</from-outcome>
             <to-view-id>/views/movies.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/views/forms/itemForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>yoloI</from-outcome>
+            <to-view-id>/views/items.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/views/items.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>itemForm</from-outcome>
+            <to-view-id>/views/forms/itemForm.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

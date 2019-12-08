@@ -24,7 +24,7 @@ public class UserDAOBean {
         String resultado = "registrar";
         boolean result = dao.crear(usuario);
         if(result){
-            resultado = "qazStudio";
+            resultado = "yolos";
         }else{
             error = "We can not register the user";
         }

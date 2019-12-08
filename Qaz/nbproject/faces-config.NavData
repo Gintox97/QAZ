@@ -2,13 +2,14 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="views/qazStudio.xhtml" x="161" y="125" zoom="true"/>
         <Node id="views/forms/gameForm.xhtml" x="344" y="50" zoom="true"/>
-        <Node id="views/qazStudio.xhtml" x="89" y="135" zoom="true"/>
         <Node id="views/movies.xhtml" x="676" y="196" zoom="true"/>
-        <Node id="index.xhtml" x="154" y="367" zoom="true"/>
         <Node id="views/forms/movieForm.xhtml" x="671" y="58" zoom="true"/>
+        <Node id="index.xhtml" x="154" y="367" zoom="true"/>
         <Node id="views/games.xhtml" x="443" y="288" zoom="true"/>
-        <Node id="views/registrar.xhtml" x="179" y="247" zoom="true"/>
+        <Node id="views/registrar.xhtml" x="167" y="266" zoom="true"/>
+        <Node id="views/items.xhtml" x="771" y="324" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
