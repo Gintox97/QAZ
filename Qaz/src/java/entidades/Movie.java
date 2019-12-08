@@ -9,17 +9,16 @@ package entidades;
  *
  * @author Miste
  */
-public class Game {
-    private int id = 0;
-    private String name; 
-    private String description;
+public class Movie {
+    private int id;
+    private String name;
+    private String sinopsis;
     private double price;
-    private String genero;
-    private String platform;
+    private String genre;
     private String image;
     private String conttype;
     
-    public Game(){
+    public Movie(){
         
     }
 
@@ -39,12 +38,12 @@ public class Game {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSinopsis() {
+        return sinopsis;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
     }
 
     public double getPrice() {
@@ -55,22 +54,12 @@ public class Game {
         this.price = price;
     }
 
-    
-
-    public String getGenero() {
-        return genero;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getPlatform() {
-        return platform;
-    }
-
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getImage() {

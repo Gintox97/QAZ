@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       >
     <h:head>
-        <title>Game Register</title>
+        <title>Movie Register</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -26,36 +26,32 @@
                     <div class="col-md-4">&nbsp;</div>
                     <div class="col-md-4">
                         <div class="logo-container">
-                            <img src="../../img/v.jpg" alt=""/>
+                            <img src="../../img/ml.png" alt=""/>
                         </div>
                         <div class="form-group">
                             <label for="name">Name <span>*</span></label>
-                            <h:inputText class="form-control" id="name" value="#{game.game.name}" required="true" requiredMessage="You need digit the name"/>
+                            <h:inputText class="form-control" id="name" value="#{movie.mov.name}" required="true" requiredMessage="You need digit the name"/>
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <h:inputTextarea class="form-control" id="description" value="#{game.game.description}"  />
+                            <label for="sinopsis">Sinopsis</label>
+                            <h:inputTextarea class="form-control" id="sinopsis" value="#{movie.mov.sinopsis}" required="true" requiredMessage="You need digit the Sinopsis" />
                         </div>
                         <div class="form-group">
                             <label for="price">Price <span>*</span></label>
-                            <h:inputText class="form-control" id="price" value="#{game.game.price}" required="true" requiredMessage="You need digit the price"/>
+                            <h:inputText class="form-control" id="price" value="#{movie.mov.price}" required="true" requiredMessage="You need digit the price"/>
                         </div>
                         
                         <div class="form-group">
                             <label for="genre">Genre <span>*</span></label>
-                            <h:inputText class="form-control" id="genre" value="#{game.game.genero}" required="true" requiredMessage="You need digit the genre"/>
+                            <h:inputText class="form-control" id="genre" value="#{movie.mov.genre}" required="true" requiredMessage="You need digit the genre"/>
                         </div>
-                        <div class="form-group">
-                            <label for="plataforma">Platform <span>*</span></label>
-                            <h:inputText class="form-control" id="plataforma" value="#{game.game.platform}" required="true" requiredMessage="You need digit the platform"/>
-                        </div>
-                        
+                       
                         <div class="form-group">
                             <label for="image">Image <span>*</span></label>
-                            <h:inputFile class="form-control" id="image" value="#{game.file}" required="true" requiredMessage="You need upload a image"/>
+                            <h:inputFile class="form-control" id="image" value="#{movie.file}" required="true" requiredMessage="You need upload a image"/>
                         </div>
                         <div class="form-group">
-                            <h:commandButton class="btn btn-primary btn-registrar" value="Add Game" action="#{game.add()}" />
+                            <h:commandButton class="btn btn-primary btn-registrar" value="Add Movie" action="#{movie.add()}" />
                         </div>
                        
                     </div>

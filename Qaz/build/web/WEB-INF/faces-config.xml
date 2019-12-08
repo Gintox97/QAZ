@@ -27,6 +27,10 @@
             <from-outcome>gameTable</from-outcome>
             <to-view-id>/views/games.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>movieTable</from-outcome>
+            <to-view-id>/views/movies.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/views/games.xhtml</from-view-id>
@@ -34,16 +38,26 @@
             <from-outcome>gameForm</from-outcome>
             <to-view-id>/views/forms/gameForm.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-outcome>yolo</from-outcome>
-            <to-view-id>/views/qazStudio.xhtml</to-view-id>
-        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/views/forms/gameForm.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>yoloG</from-outcome>
             <to-view-id>/views/games.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/views/movies.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>movieForm</from-outcome>
+            <to-view-id>/views/forms/movieForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/views/forms/movieForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>yoloM</from-outcome>
+            <to-view-id>/views/movies.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

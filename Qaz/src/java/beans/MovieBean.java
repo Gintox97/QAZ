@@ -5,8 +5,8 @@
  */
 package beans;
 
-import entidades.Game;
-import implementacion.GameDAOImp;
+import entidades.Movie;
+import implementacion.MovieDAOImp;
 import java.io.InputStream;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,31 +17,30 @@ import javax.xml.bind.DatatypeConverter;
  *
  * @author Miste
  */
-@ManagedBean(name="game")
+@ManagedBean(name="movie")
 @RequestScoped
-public class GameBean {
-    private Game game = new Game();
+public class MovieBean {
+    private Movie mov = new Movie();
     private Part file;
     private String conttype;
     private String imgB64;
-    private GameDAOImp dao;
+    private MovieDAOImp dao;
     
-    public GameBean(){
-        file = null;
-        dao = new GameDAOImp();
+    public MovieBean(){
+        file=null;
+        dao = new MovieDAOImp();
     }
     
     public void add(){
-        if(imgB64!=null && !imgB64.isEmpty()){ // png jpg gif bmp  //mp4 mpeg wav 
-           
-            game.setConttype(conttype);
-            game.setImage(imgB64);
+        if(imgB64 != null && !imgB64.isEmpty()){
+            mov.setConttype(conttype);
+            mov.setImage(imgB64);
             
-            dao.crear(game);
+            dao.crear(mov);
         }
     }
     
-   private void getBase64(){
+    private void getBase64(){
         try {
             InputStream is = null;            
             if(file != null){
@@ -57,29 +56,13 @@ public class GameBean {
         } catch (Exception e) {
         }
     }
-   
-//   public void tabla() throws SQLException{
-//       PreparedStatement ps;
-//       ResultSet rs;
-//       ps = (PreparedStatement) dao.obtenerTodos();
-//       rs=ps.executeQuery();
-//       
-//       while(rs.next()){
-//           rs.getString("nombre");
-//           rs.getString("descripcion");
-//           rs.getDouble("precio");
-//           rs.getString("genero");
-//           rs.getString("plataforma");
-//           rs.getBlob("imagen");
-//       }
-//   }
-   
-    public Game getGame() {
-        return game;
+
+    public Movie getMov() {
+        return mov;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setMov(Movie mov) {
+        this.mov = mov;
     }
 
     public Part getFile() {
@@ -90,11 +73,4 @@ public class GameBean {
         this.file = file;
         getBase64();
     }
-
-  
-   
-
-   
-    
-    
 }
