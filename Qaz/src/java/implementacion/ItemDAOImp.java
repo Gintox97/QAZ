@@ -19,8 +19,8 @@ import java.util.List;
 public class ItemDAOImp implements IItemDAO{
 
     private Item item = new Item();
-    DBHelper db = new DBHelper();
-    String error;
+    private DBHelper db = new DBHelper();
+    private String error;
 
     @Override
     public boolean crear(Item item) {
