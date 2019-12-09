@@ -23,7 +23,6 @@ import javax.xml.bind.DatatypeConverter;
 @RequestScoped
 public class GameBean implements Serializable{
     
-    private List<Game> games;
     private Game game = new Game();
     private Part file;
     private String conttype;
@@ -34,10 +33,8 @@ public class GameBean implements Serializable{
         file = null;
         dao = new GameDAOImp();
     }
-    
-    public List<Game> getGame(){
-        return games;
-    }
+
+ 
     
     public void add(){
         if(imgB64!=null && !imgB64.isEmpty()){ // png jpg gif bmp  //mp4 mpeg wav 
@@ -82,7 +79,11 @@ public class GameBean implements Serializable{
 //       }
 //   }
    
+       public Game getGame() {
+        return game;
+    }
     
+   
 
     public void setGame(Game game) {
         this.game = game;
