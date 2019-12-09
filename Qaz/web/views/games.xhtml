@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>QAZ Games</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
@@ -14,7 +15,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- 
+ <link href="../css/playlist.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
     </h:head>
     <h:body>
         <header>
@@ -91,55 +95,65 @@
                 <h:commandButton class="btn btn-outline-danger" value="Add a new Game" action="gameForm"/>
             </h:form>
             
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTable"
-                           value="">
-                        
-                        <thead>
-                            <tr class="text-center" style="color: white">
-                                <th class="panel-cred">Game Name</th>
-                                <th class="panel-cred">Description</th>
-                                <th class="panel-cred">Price</th>
-                                <th class="panel-cred">Type</th>
-                                <th class="panel-cred">Genre</th>
-                                <th class="panel-cred">Platform</th>
-                                <th class="panel-cred">Image</th>
-                            </tr>
-                        </thead>
-                        <tr class="text-center" style="color: white" >
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            
+            <h:form>
+                <h:dataTable var="ga" value="#{game.game}">
+                    <h:column headerClass="Game Name">
+                        <h:outputText value="#{ga.name}"/>
+                    </h:column>
+                    <h:column headerClass="Description">
+                        <h:outputText value="#{ga.description}"/>
+                    </h:column>
+                    <h:column headerClass="Price">
+                        <h:outputText value="#{ga.price}"/>
+                    </h:column>
+                    <h:column headerClass="Genre">
+                        <h:outputText value="#{ga.genero}"/>
+                    </h:column>
+                    <h:column headerClass="Platform">
+                        <h:outputText value="#{ga.platform}"/>
+                    </h:column>
+                    <h:column headerClass="Image">
+                        <h:outputFormat value="#{ga.image}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            
+            
         </div>
-        <!-- jQuery -->
-            <script src="js/jQuery.js"></script>
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/boobstrap.js"></script>
-            <!-- Metis Menu Plugin JavaScript -->
-            <script src="js/metisMenu.js"></script>
-            <!-- DataTables JavaScript -->
-            <script src="js/datTable.js"></script>
-            <script src="js/datTable_Boobstrap.js"></script>
-            <!-- Morris Charts JavaScript -->
-            <script src="js/raphael.js"></script>
-            <script src="js/morris.js"></script>
-            <!-- Morris Charts JavaScript -->
-            <script src="js/chart.js"></script>
-            <script>
-                                                        $(document).ready(function () {
-                                                            $('#dataTable').dataTable();
-                                                        });
-            </script>
+        
+                <footer>
+    <div class="example">
+
+        <div class="player">
+            <div class="pl"></div>
+            <div class="title"></div>
+            <div class="artist"></div>
+            <div class="cover"></div>
+            <div class="controls">
+                <div class="play"></div>
+                <div class="pause"></div>
+                <div class="rew"></div>
+                <div class="fwd"></div>
+            </div>
+            <div class="volume"></div>
+            <div class="tracker"></div>
+        </div>
+        <ul class="playlist hidden">
+            <li audiourl="01.mp3" cover="cover1.jpg" artist="Super Mario Bros">01.mp3</li>
+            <li audiourl="02.mp3" cover="cover1.jpg" artist="Super Mario Bros">02.mp3</li>
+            <li audiourl="03.mp3" cover="cover2.jpg" artist="God Of War">03.mp3</li>
+            <li audiourl="04.mp3" cover="cover2.jpg" artist="God Of War">04.mp3</li>
+            <li audiourl="05.mp3" cover="cover3.png" artist="Halo">05.mp3</li>
+            <li audiourl="06.mp3" cover="cover3.png" artist="Halo">06.mp3</li>
+            <li audiourl="07.mp3" cover="cover4.jpg" artist="Pokemon">07.mp3</li>
+            <li audiourl="08.mp3" cover="cover4.jpg" artist="Pokemon">08.mp3</li>
+            <li audiourl="09.mp3" cover="cover5.jpg" artist="Sonic">09.mp3</li>
+            <li audiourl="10.mp3" cover="cover5.jpg" artist="Sonic">10.mp3</li>
+        </ul>
+
+    </div>
+  </footer>
     </h:body>
 </html>
 

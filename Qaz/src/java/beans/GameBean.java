@@ -8,6 +8,8 @@ package beans;
 import entidades.Game;
 import implementacion.GameDAOImp;
 import java.io.InputStream;
+import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.servlet.http.Part;
@@ -19,7 +21,9 @@ import javax.xml.bind.DatatypeConverter;
  */
 @ManagedBean(name="game")
 @RequestScoped
-public class GameBean {
+public class GameBean implements Serializable{
+    
+    private List<Game> games;
     private Game game = new Game();
     private Part file;
     private String conttype;
@@ -29,6 +33,10 @@ public class GameBean {
     public GameBean(){
         file = null;
         dao = new GameDAOImp();
+    }
+    
+    public List<Game> getGame(){
+        return games;
     }
     
     public void add(){
@@ -74,9 +82,7 @@ public class GameBean {
 //       }
 //   }
    
-    public Game getGame() {
-        return game;
-    }
+    
 
     public void setGame(Game game) {
         this.game = game;

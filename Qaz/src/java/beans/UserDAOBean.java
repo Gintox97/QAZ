@@ -30,6 +30,8 @@ public class UserDAOBean {
         }
         return resultado;
     }
+    
+    
 
     public User getUsuario() {
         return usuario;
