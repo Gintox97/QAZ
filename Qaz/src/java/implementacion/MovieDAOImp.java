@@ -69,9 +69,9 @@ String error;
                     this.movie.setId(resultado.getInt("id"));
                     this.movie.setName(resultado.getString("name"));
                     this.movie.setSinopsis(resultado.getString("sinopsis"));
-                    this.movie.setPrice(resultado.getDouble("precio"));
+                    this.movie.setPrice(resultado.getDouble("price"));
                     this.movie.setGenre(resultado.getString("genre"));
-                    this.movie.setImage(resultado.getString("imagen"));
+                    this.movie.setImage(resultado.getString("image"));
                     
                     movies.add(this.movie);
                 }

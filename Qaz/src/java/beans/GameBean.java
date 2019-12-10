@@ -7,8 +7,10 @@ package beans;
 
 import entidades.Game;
 import implementacion.GameDAOImp;
+import implementacion.ItemDAOImp;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -24,6 +26,7 @@ import javax.xml.bind.DatatypeConverter;
 public class GameBean implements Serializable{
     
     private Game game = new Game();
+    private List<Game> lista = new ArrayList();
     private Part file;
     private String conttype;
     private String imgB64;
@@ -32,6 +35,13 @@ public class GameBean implements Serializable{
     public GameBean(){
         file = null;
         dao = new GameDAOImp();
+        
+        GameDAOImp ga =new GameDAOImp();
+        try{
+        lista =  ga.obtenerTodos();
+        }catch(Exception e){
+            
+        }
     }
 
  
@@ -97,6 +107,16 @@ public class GameBean implements Serializable{
         this.file = file;
         getBase64();
     }
+
+    public List<Game> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Game> lista) {
+        this.lista = lista;
+    }
+
+   
 
   
    

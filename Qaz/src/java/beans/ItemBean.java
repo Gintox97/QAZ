@@ -8,6 +8,8 @@ package beans;
 import entidades.Item;
 import implementacion.ItemDAOImp;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.servlet.http.Part;
@@ -21,6 +23,7 @@ import javax.xml.bind.DatatypeConverter;
 @RequestScoped
 public class ItemBean {
     private Item it = new Item();
+    private List<Item> lista = new ArrayList();   
     private Part file;
     private String conttype;
     private String imgB64;
@@ -30,7 +33,15 @@ public class ItemBean {
         file = null;
         dao= new ItemDAOImp();
         
+        ItemDAOImp ito =new ItemDAOImp();
+        try{
+        lista =  ito.obtenerTodos();
+        }catch(Exception e){
+            
+        }
     }
+    
+   
     
     public void add(){
         if(imgB64 != null && !imgB64.isEmpty()){
@@ -57,6 +68,8 @@ public class ItemBean {
         } catch (Exception e) {
         }
     }
+    
+    
 
     public Item getIt() {
         return it;
@@ -73,6 +86,14 @@ public class ItemBean {
     public void setFile(Part file) {
         this.file = file;
         getBase64();
+    }
+
+    public List<Item> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Item> lista) {
+        this.lista = lista;
     }
     
     

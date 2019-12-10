@@ -5,9 +5,12 @@
  */
 package beans;
 
+import entidades.Item;
 import entidades.Movie;
 import implementacion.MovieDAOImp;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.servlet.http.Part;
@@ -21,6 +24,7 @@ import javax.xml.bind.DatatypeConverter;
 @RequestScoped
 public class MovieBean {
     private Movie mov = new Movie();
+    private List<Movie> lista = new ArrayList();  
     private Part file;
     private String conttype;
     private String imgB64;
@@ -29,6 +33,13 @@ public class MovieBean {
     public MovieBean(){
         file=null;
         dao = new MovieDAOImp();
+        
+        MovieDAOImp mov = new MovieDAOImp();
+        try{
+            lista = mov.obtenerTodos();
+        }catch(Exception e){
+            
+        }
     }
     
     public void add(){
@@ -72,5 +83,13 @@ public class MovieBean {
     public void setFile(Part file) {
         this.file = file;
         getBase64();
+    }
+
+    public List<Movie> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Movie> lista) {
+        this.lista = lista;
     }
 }

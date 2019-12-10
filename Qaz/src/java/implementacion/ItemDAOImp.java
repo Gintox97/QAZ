@@ -27,7 +27,7 @@ public class ItemDAOImp implements IItemDAO{
 
         boolean resultado = false;
         try{
-        String query = "INTERT INTO items(name,description,price,image,conttype)"
+        String query = "INSERT INTO item(name,description,price,image,conttype)"
                 +"VALUES("
                 +"'"+item.getName()+"',"
                 +"'"+item.getDescription()+"',"
