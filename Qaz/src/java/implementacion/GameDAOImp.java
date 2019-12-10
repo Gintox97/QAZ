@@ -69,15 +69,16 @@ public class GameDAOImp implements IGameDAO{
             if(db.connect()){
                 ResultSet resultado = (ResultSet) db.execute(query, false);
                 while(resultado.next()){
-                    this.game.setId(resultado.getInt("id"));
-                    this.game.setName(resultado.getString("nombre"));
-                    this.game.setDescription(resultado.getString("descripcion"));
-                    this.game.setPrice(resultado.getDouble("precio"));
-                    this.game.setGenero(resultado.getString("genero"));
-                    this.game.setPlatform(resultado.getString("plataforma"));
-                    this.game.setImage(resultado.getString("imagen"));
+                    Game gae = new Game();
+                    gae.setId(resultado.getInt("id"));
+                    gae.setName(resultado.getString("nombre"));
+                    gae.setDescription(resultado.getString("descripcion"));
+                    gae.setPrice(resultado.getDouble("precio"));
+                    gae.setGenero(resultado.getString("genero"));
+                    gae.setPlatform(resultado.getString("plataforma"));
+                    gae.setImage(resultado.getString("imagen"));
                     
-                    games.add(this.game);
+                    games.add(gae);
                 }
                 
             }else{

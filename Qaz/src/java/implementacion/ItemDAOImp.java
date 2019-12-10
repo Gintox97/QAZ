@@ -71,13 +71,14 @@ public class ItemDAOImp implements IItemDAO{
                 ResultSet resultado = (ResultSet) db.execute(query, false);
                 
                 while(resultado.next()){
-                    this.item.setId(resultado.getInt("id"));
-                    this.item.setName(resultado.getString("name"));
-                    this.item.setDescription(resultado.getString("description"));
-                    this.item.setPrice(resultado.getDouble("price"));
-                    this.item.setImage(resultado.getString("image"));
+                    Item it = new Item();
+                    it.setId(resultado.getInt("id"));
+                    it.setName(resultado.getString("name"));
+                    it.setDescription(resultado.getString("description"));
+                    it.setPrice(resultado.getDouble("price"));
+                    it.setImage(resultado.getString("image"));
                     
-                    items.add(this.item);
+                    items.add(it);
                 }
             }else{
                 error = "We can not connect to server";

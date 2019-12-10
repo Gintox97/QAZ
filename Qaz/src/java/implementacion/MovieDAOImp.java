@@ -66,14 +66,15 @@ String error;
             if(db.connect()){
                 ResultSet resultado = (ResultSet) db.execute(query, false);
                 while(resultado.next()){
-                    this.movie.setId(resultado.getInt("id"));
-                    this.movie.setName(resultado.getString("name"));
-                    this.movie.setSinopsis(resultado.getString("sinopsis"));
-                    this.movie.setPrice(resultado.getDouble("price"));
-                    this.movie.setGenre(resultado.getString("genre"));
-                    this.movie.setImage(resultado.getString("image"));
+                    Movie mov = new Movie();
+                    mov.setId(resultado.getInt("id"));
+                    mov.setName(resultado.getString("name"));
+                    mov.setSinopsis(resultado.getString("sinopsis"));
+                    mov.setPrice(resultado.getDouble("price"));
+                    mov.setGenre(resultado.getString("genre"));
+                    mov.setImage(resultado.getString("image"));
                     
-                    movies.add(this.movie);
+                    movies.add(mov);
                 }
                 
             }else{
